@@ -6,7 +6,8 @@ export default function App() {
   const [chose, setChose] = useState();
 
   const modificarHandle = () => {
-    const numero = (Math.floor(Math.random()*(7-1+1)+1));
+    const numero = (Math.floor(Math.random()*(8-1+1)+1));
+    console.log('Gato número ' + numero);
     setChose(numero);
   };
 
@@ -18,7 +19,11 @@ export default function App() {
           source={require('./assets/cats/cat-cafe-pet.jpg')} 
         />
         <View>
-          <Button title='Miar' onPress={modificarHandle}/>
+          <Button 
+            title='Miar' 
+            onPress={modificarHandle}
+            style={styles.imgButton}
+          />
         </View>
       </View>
     );
@@ -108,6 +113,21 @@ export default function App() {
     );
   };
 
+  if (chose == 8) {
+    return (
+      <View style={styles.container}>
+        <Image
+          style={styles.image}
+          resizeMode='contain'
+          source={{uri: 'https://www.plazahoteis.com.br/wp-content/uploads/2019/07/gatinho-filhote-plaza-hoteis-jul19.jpg'}} 
+        />
+        <View>
+          <Button title='Miar' onPress={modificarHandle}/>
+        </View>
+      </View>
+    );
+  };
+
   return (
     <View style={styles.container}>
         <Text>Chame o gato!</Text>
@@ -126,7 +146,8 @@ const styles = StyleSheet.create({
   },
   image: {
     resizeMode: 'contain',
-    height: 300
+    width: 400,
+    height: 400
   },
   imageContainer: {
     padding: 20

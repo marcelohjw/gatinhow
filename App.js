@@ -6,7 +6,7 @@ export default function App() {
   const [chose, setChose] = useState();
 
   const modificarHandle = () => {
-    const numero = (Math.floor(Math.random()*(8-1+1)+1));
+    const numero = (Math.floor(Math.random()*(10-1+1)+1));
     console.log('Gato número ' + numero);
     setChose(numero);
   };
@@ -16,7 +16,7 @@ export default function App() {
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={require('./assets/cats/cat-cafe-pet.jpg')} 
+          source={{uri: 'https://blackwhitepet.com.br/resources/img/racas-de-gato-pelo-curto-brasileiro.jpg'}} 
         />
         <View>
           <Button 
@@ -34,7 +34,7 @@ export default function App() {
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={require('./assets/cats/ac03988834695cc2f6eb623a74143355--green-eyes-bengal-cats.jpg')} 
+          source={{uri: 'https://www.dicaspetz.com.br/wp-content/uploads/2020/02/gato-com-heterocromia-pet.jpg'}} 
         />
         <View>
           <Button title='Miar' onPress={modificarHandle}/>
@@ -48,7 +48,7 @@ export default function App() {
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={require('./assets/cats/1800x1200_cat_relaxing_on_patio_other.jpg')} 
+          source={{uri: 'https://soestima.com.br/wp-content/uploads/2020/09/Untitled-design-2-1.jpg'}} 
         />
         <View>
           <Button title='Miar' onPress={modificarHandle}/>
@@ -62,7 +62,7 @@ export default function App() {
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={require('./assets/cats/cat-4027635_1280.jpg')} 
+          source={{uri: 'https://www.dicaspetz.com.br/wp-content/uploads/2020/02/gato-com-heterocromia.jpg'}} 
         />
         <View>
           <Button title='Miar' onPress={modificarHandle}/>
@@ -76,7 +76,7 @@ export default function App() {
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={require('./assets/cats/cat-4664535_640.jpg')} 
+          source={{uri: 'https://i.ytimg.com/vi/rPXkM63ZO-8/maxresdefault.jpg'}} 
         />
         <View>
           <Button title='Miar' onPress={modificarHandle}/>
@@ -90,7 +90,7 @@ export default function App() {
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={require('./assets/cats/cat-5496162_640.jpg')} 
+          source={{uri: 'https://www.azpetshop.com.br/blog/wp-content/uploads/2021/03/quantos-anos-vive-um-gato-805x452.jpg'}} 
         />
         <View>
           <Button title='Miar' onPress={modificarHandle}/>
@@ -104,7 +104,7 @@ export default function App() {
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={require('./assets/cats/cat-5657148__340.jpg')} 
+          source={{uri: 'https://saude.abril.com.br/wp-content/uploads/2021/03/bichos-foto-vauvau-Getty-Images.png'}} 
         />
         <View>
           <Button title='Miar' onPress={modificarHandle}/>
@@ -118,8 +118,35 @@ export default function App() {
       <View style={styles.container}>
         <Image
           style={styles.image}
-          resizeMode='contain'
-          source={{uri: 'https://www.plazahoteis.com.br/wp-content/uploads/2019/07/gatinho-filhote-plaza-hoteis-jul19.jpg'}} 
+          source={{uri: 'https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg?quality=70'}} 
+        />
+        <View>
+          <Button title='Miar' onPress={modificarHandle}/>
+        </View>
+      </View>
+    );
+  };
+
+  if (chose == 9) {
+    return (
+      <View style={styles.container}>
+        <Image
+          style={styles.image}
+          source={{uri: 'https://meupet.elanco.com/sites/g/files/adhwdz661/files/styles/paragraph_image/public/2020-07/gato_de_retrato_olhando_para_a_camera.jpg?itok=iXWiqVkY'}} 
+        />
+        <View>
+          <Button title='Miar' onPress={modificarHandle}/>
+        </View>
+      </View>
+    );
+  };
+
+  if (chose == 10) {
+    return (
+      <View style={styles.container}>
+        <Image
+          style={styles.image}
+          source={{uri: 'https://static.poder360.com.br/2020/10/gato-animal-covid-19-scaled.jpg'}} 
         />
         <View>
           <Button title='Miar' onPress={modificarHandle}/>
@@ -137,7 +164,6 @@ export default function App() {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

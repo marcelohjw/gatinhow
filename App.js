@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import { Audio } from 'expo-av';
+import { AntDesign } from '@expo/vector-icons';
 
 export default function App() {
-  
+  const [sound, setSound] = useState(false);
   const [chose, setChose] = useState();
 
   const modificarHandle = () => {
@@ -10,6 +12,25 @@ export default function App() {
     console.log('Gato número ' + numero);
     setChose(numero);
   };
+
+  async function playSound() {
+    console.log('Loading Sound');
+    const { sound } = await Audio.Sound.createAsync(
+       require('./assets/meow.mp3')
+    );
+    setSound(sound);
+
+    console.log('Playing Sound');
+    await sound.playAsync(); 
+  }
+
+  useEffect(() => {
+    return sound
+      ? () => {
+          console.log('Unloading Sound');
+          sound.unloadAsync(); }
+      : undefined;
+  }, [sound]);
 
   if (chose == 1) {
     return (
@@ -161,6 +182,12 @@ export default function App() {
         <View>
           <Button title='Miar' onPress={modificarHandle}/>
         </View>
+        <AntDesign 
+            name="sound" 
+            size={24} 
+            color="black"
+            onPress={playSound} 
+          />
     </View>
   );
 }
@@ -177,5 +204,8 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     padding: 20
+  },
+  soundIcon: {
+    paddingTop: '80%'
   }
 });

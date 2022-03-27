@@ -1,34 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import { Audio } from 'expo-av';
-import { AntDesign } from '@expo/vector-icons';
 
 export default function App() {
   const [sound, setSound] = useState(false);
   const [chose, setChose] = useState();
+  const [playing, setPlaying] = useState(false);
+
+  const choseCat = () => {
+    const numero = (Math.floor(Math.random()*(10-1+1)+1));
+    return numero;
+  };
 
   const modificarHandle = () => {
-    const numero = (Math.floor(Math.random()*(10-1+1)+1));
+    numero = choseCat();
     console.log('Gato número ' + numero);
     setChose(numero);
+    if (!playing) {
+      playSound();
+      console.log('Playing sound?');
+    }
+    
   };
 
   async function playSound() {
-    console.log('Loading Sound');
+    console.log('Loading Meow');
     const { sound } = await Audio.Sound.createAsync(
        require('./assets/meow.mp3')
     );
     setSound(sound);
 
-    console.log('Playing Sound');
+    console.log('Meow Starts');
     await sound.playAsync(); 
   }
 
   useEffect(() => {
     return sound
       ? () => {
-          console.log('Unloading Sound');
-          sound.unloadAsync(); }
+          console.log('Unloading Meow');
+          sound.unloadAsync();
+          setPlaying(false); 
+        }
       : undefined;
   }, [sound]);
 
@@ -182,12 +194,6 @@ export default function App() {
         <View>
           <Button title='Miar' onPress={modificarHandle}/>
         </View>
-        <AntDesign 
-            name="sound" 
-            size={24} 
-            color="black"
-            onPress={playSound} 
-          />
     </View>
   );
 }

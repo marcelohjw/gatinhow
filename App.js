@@ -17,8 +17,8 @@ export default function App() {
   const modificarHandle = () => {
     numero = choseCat();
     console.log('Gato número ' + numero);
-    intervalo = numero * 1000;
-    console.log(intervalo);
+    intervalo = (numero * 1000 + 5000);
+    console.log((intervalo / 1000), 'segundos.');
     setChose(numero);
     if (!playing) {
       playSound();
@@ -39,7 +39,6 @@ export default function App() {
   }
 
   const onMuteHandler = () => {
-    console.log(mute);
     if (mute) {
       setMute(false);
     } else {
@@ -64,7 +63,7 @@ export default function App() {
         />
         <View style={styles.soundIcon}>
           <Ionicons 
-            name="ios-volume-high" 
+            name={mute ?  "ios-volume-mute" : "ios-volume-high" }
             size={24} 
             color="black" 
             onPress={onMuteHandler}
@@ -83,7 +82,7 @@ export default function App() {
         />
         <View style={styles.soundIcon}>
           <Ionicons 
-              name="ios-volume-high" 
+              name={mute ?  "ios-volume-mute" : "ios-volume-high" }
               size={24} 
               color="black" 
               onPress={onMuteHandler}
@@ -102,7 +101,7 @@ export default function App() {
         />
         <View style={styles.soundIcon}>
           <Ionicons 
-              name="ios-volume-high" 
+              name={mute ?  "ios-volume-mute" : "ios-volume-high" }
               size={24} 
               color="black" 
               onPress={onMuteHandler}
@@ -121,7 +120,7 @@ export default function App() {
         />
         <View style={styles.soundIcon}>
           <Ionicons 
-              name="ios-volume-high" 
+              name={mute ?  "ios-volume-mute" : "ios-volume-high" }
               size={24} 
               color="black" 
               onPress={onMuteHandler}
@@ -140,7 +139,7 @@ export default function App() {
         />
         <View style={styles.soundIcon}>
           <Ionicons 
-              name="ios-volume-high" 
+              name={mute ?  "ios-volume-mute" : "ios-volume-high" }
               size={24} 
               color="black" 
               onPress={onMuteHandler}
@@ -159,7 +158,7 @@ export default function App() {
         />
         <View style={styles.soundIcon}>
           <Ionicons 
-              name="ios-volume-high" 
+              name={mute ?  "ios-volume-mute" : "ios-volume-high" }
               size={24} 
               color="black" 
               onPress={onMuteHandler}
@@ -178,7 +177,7 @@ export default function App() {
         />
         <View style={styles.soundIcon}>
           <Ionicons 
-              name="ios-volume-high" 
+              name={mute ?  "ios-volume-mute" : "ios-volume-high" }
               size={24} 
               color="black" 
               onPress={onMuteHandler}
@@ -197,7 +196,7 @@ export default function App() {
         />
         <View style={styles.soundIcon}>
           <Ionicons 
-              name="ios-volume-high" 
+              name={mute ?  "ios-volume-mute" : "ios-volume-high" }
               size={24} 
               color="black" 
               onPress={onMuteHandler}
@@ -216,7 +215,7 @@ export default function App() {
         />
         <View style={styles.soundIcon}>
           <Ionicons 
-              name="ios-volume-high" 
+              name={mute ?  "ios-volume-mute" : "ios-volume-high" }
               size={24} 
               color="black" 
               onPress={onMuteHandler}
@@ -235,7 +234,7 @@ export default function App() {
         />
         <View style={styles.soundIcon}>
           <Ionicons 
-              name="ios-volume-high" 
+              name={mute ?  "ios-volume-mute" : "ios-volume-high" }
               size={24} 
               color="black" 
               onPress={onMuteHandler}

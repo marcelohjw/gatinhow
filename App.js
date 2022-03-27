@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, Alert } from 'react-native';
 import { Audio } from 'expo-av';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function App() {
   const [sound, setSound] = useState(false);
   const [chose, setChose] = useState();
-  const [playing, setPlaying] = useState(false);
-  const [mute, setMute] = useState(false);
+  const [mute, setMute] = useState(true);
 
   const choseCat = () => {
     const numero = (Math.floor(Math.random() * (10 - 1 + 1) + 1));
@@ -20,10 +19,6 @@ export default function App() {
     intervalo = (numero * 1000 + 5000);
     console.log((intervalo / 1000), 'segundos.');
     setChose(numero);
-    if (!playing) {
-      playSound();
-      setPlaying(true);
-    }
 
     setTimeout(modificarHandle, intervalo);
 
@@ -41,9 +36,13 @@ export default function App() {
   const onMuteHandler = () => {
     if (mute) {
       setMute(false);
+      playSound();
     } else {
       setMute(true);
     }
+    setTimeout(() => {
+      Alert.alert('Clique no som quando quiser miar!');
+    }, 85000);
   };
 
   useEffect(() => {
@@ -64,7 +63,7 @@ export default function App() {
         <View style={styles.soundIcon}>
           <Ionicons 
             name={mute ?  "ios-volume-mute" : "ios-volume-high" }
-            size={24} 
+            size={30} 
             color="black" 
             onPress={onMuteHandler}
           />
@@ -83,7 +82,7 @@ export default function App() {
         <View style={styles.soundIcon}>
           <Ionicons 
               name={mute ?  "ios-volume-mute" : "ios-volume-high" }
-              size={24} 
+              size={30} 
               color="black" 
               onPress={onMuteHandler}
             />
@@ -102,7 +101,7 @@ export default function App() {
         <View style={styles.soundIcon}>
           <Ionicons 
               name={mute ?  "ios-volume-mute" : "ios-volume-high" }
-              size={24} 
+              size={30} 
               color="black" 
               onPress={onMuteHandler}
             />
@@ -121,7 +120,7 @@ export default function App() {
         <View style={styles.soundIcon}>
           <Ionicons 
               name={mute ?  "ios-volume-mute" : "ios-volume-high" }
-              size={24} 
+              size={30} 
               color="black" 
               onPress={onMuteHandler}
             />
@@ -140,7 +139,7 @@ export default function App() {
         <View style={styles.soundIcon}>
           <Ionicons 
               name={mute ?  "ios-volume-mute" : "ios-volume-high" }
-              size={24} 
+              size={30} 
               color="black" 
               onPress={onMuteHandler}
             />
@@ -159,7 +158,7 @@ export default function App() {
         <View style={styles.soundIcon}>
           <Ionicons 
               name={mute ?  "ios-volume-mute" : "ios-volume-high" }
-              size={24} 
+              size={30} 
               color="black" 
               onPress={onMuteHandler}
             />
@@ -178,7 +177,7 @@ export default function App() {
         <View style={styles.soundIcon}>
           <Ionicons 
               name={mute ?  "ios-volume-mute" : "ios-volume-high" }
-              size={24} 
+              size={30} 
               color="black" 
               onPress={onMuteHandler}
             />
@@ -197,7 +196,7 @@ export default function App() {
         <View style={styles.soundIcon}>
           <Ionicons 
               name={mute ?  "ios-volume-mute" : "ios-volume-high" }
-              size={24} 
+              size={30} 
               color="black" 
               onPress={onMuteHandler}
             />
@@ -216,7 +215,7 @@ export default function App() {
         <View style={styles.soundIcon}>
           <Ionicons 
               name={mute ?  "ios-volume-mute" : "ios-volume-high" }
-              size={24} 
+              size={30} 
               color="black" 
               onPress={onMuteHandler}
             />
@@ -235,7 +234,7 @@ export default function App() {
         <View style={styles.soundIcon}>
           <Ionicons 
               name={mute ?  "ios-volume-mute" : "ios-volume-high" }
-              size={24} 
+              size={30} 
               color="black" 
               onPress={onMuteHandler}
             />

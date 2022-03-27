@@ -37,12 +37,12 @@ export default function App() {
     if (mute) {
       setMute(false);
       playSound();
+      setTimeout(() => {
+        Alert.alert('Clique no som quando quiser miar!');
+      }, 85000);
     } else {
       setMute(true);
     }
-    setTimeout(() => {
-      Alert.alert('Clique no som quando quiser miar!');
-    }, 85000);
   };
 
   useEffect(() => {

@@ -26,8 +26,9 @@ export default function App() {
 
   async function playSound() {
     const { sound } = await Audio.Sound.createAsync(
-      require('./assets/meow.mp3')
+      require('./assets/meowCut.mp3')
     );
+
     setSound(sound);
 
     await sound.playAsync();
@@ -38,8 +39,8 @@ export default function App() {
       setMute(false);
       playSound();
       setTimeout(() => {
-        Alert.alert('Clique no som quando quiser miar!');
-      }, 85000);
+        Alert.alert('Clique no som quando quiser fazer barulho!');
+      }, 23000);
     } else {
       setMute(true);
     }
